@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/webapp
+      - ./webapp/BAZA_ZOV.db
+    environment:
+      - FLASK_APP=webapp/site.py
+    restart: unless-stopped
